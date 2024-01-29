@@ -3,7 +3,7 @@
 
 ## Preview 🎬
 
-![](/.github/)
+![](https://github.com/Sai-Kumar-Kanuri/Snapchat-Clone/blob/main/public/preview.png)
 
 <p align="center">
   Snapchat clone built in Next.js + TypeScript + Tailwind CSS + Shadcn using MongoDB for storage.
@@ -63,8 +63,9 @@ Here are the steps to run the project locally.
    ```
 
 1. Start the development server.
-
+   ```bash
    npm run dev
+   ```
 
 Now, your development environment is set up, and you can start working on the project locally.Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
