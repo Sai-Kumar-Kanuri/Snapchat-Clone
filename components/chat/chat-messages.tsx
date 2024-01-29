@@ -74,6 +74,10 @@ const ChatMessages = ({ messages, session }: ChatMessagesProps) => {
                 const senderFullName = message.sender.fullName.toUpperCase();
                 const isMessageImage = message.messageType === "image";
                 const isPrevMessageFromSameSender = idx > 0 && messages[idx - 1].sender._id === message.sender._id;
+                const handleImageLoad = () => {
+                    lastMsgRef.current?.scrollIntoView({ behavior: "smooth" });
+                };
+
 
                 return (
                     <div key={message._id} className='w-full' ref={lastMsgRef}>
@@ -95,6 +99,10 @@ const ChatMessages = ({ messages, session }: ChatMessagesProps) => {
                                             height={200}
                                             className='h-auto w-auto object-cover cursor-pointer'
                                             alt='Image'
+                                            onLoad={handleImageLoad}
+                                            onClick={() =>
+                                                setIsPreviewingImage({ open: true, imgURL: message.content })
+                                            }
                                         />
                                     </div>
                                 ) : (
