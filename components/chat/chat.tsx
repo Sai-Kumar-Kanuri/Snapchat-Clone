@@ -11,7 +11,6 @@ type ChatProps = {
 };
 
 const Chat = ({ chat }: ChatProps) => {
-    console.log(chat);
     const userToChat = chat.participants[0];
     const lastMessage = chat.lastMessage;
     const lastMessageType = lastMessage?.messageType;
