@@ -2,10 +2,11 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { LogOut } from "lucide-react";
 import LogoutButton from "./logout-button";
+import { auth } from "@/auth";
 
 const Navbar = async () => {
+    const session = await auth();
 
     return (
         <header className='w-full py-4 px-8 flex justify-between items-center'>
@@ -18,8 +19,13 @@ const Navbar = async () => {
                 </Button>
             </div>
             <div className='flex space-x-2'>
-                <Button className='bg-black text-white rounded-full p-3 text-xs md:text-sm'>Watch tutorial</Button>
-                <LogoutButton />
+                <Button className='bg-black text-white rounded-full p-3 text-xs md:text-sm'>Download</Button>
+                {!session && (
+					<Button asChild className='bg-black text-white rounded-full p-3 text-xs md:text-sm'>
+						<Link href={"/login"}>Login</Link>
+					</Button>
+				)}
+				{session?.user && <LogoutButton />}
             </div>
         </header>
     );

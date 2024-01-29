@@ -5,6 +5,7 @@ import { unstable_noStore as noStore } from "next/cache";
 import Chat, { IChatDocument } from "@/models/chatModel";
 
 export const getUsersForSidebar = async (authUserId: string) => {
+    noStore();
     try {
         const allUsers: IUserDocument[] = await User.find({ _id: { $ne: authUserId } });
 
